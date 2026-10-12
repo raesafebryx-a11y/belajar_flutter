@@ -11,7 +11,14 @@ import 'package:flutter/material.dart';
 // import 'package:belajar_flutter/row_column_widget/ProfileTw.dart';
 // import 'package:belajar_flutter/sized_expanded_stack/LayoutSatu.dart';
 // import 'package:belajar_flutter/sized_expanded_stack/LayoutDua.dart';
-import 'package:belajar_flutter/sized_expanded_stack/LayoutTiga.dart';
+// import 'package:belajar_flutter/sized_expanded_stack/LayoutTiga.dart';
+import 'package:belajar_flutter/sized_expanded_stack/LatihanLayout.dart';
+// import 'package:belajar_flutter/contohlistview_flutter/ListViewBasic.dart';
+// import 'package:belajar_flutter/contohlistview_flutter/ListView.builder.dart';
+// import 'package:belajar_flutter/contohlistview_flutter/ListView.separated.dart';
+// import 'package:belajar_flutter/contohlistview_flutter/CustomListView.dart';
+// import 'package:belajar_flutter/contohGridview_flutter/GridBasic.dart';
+// import 'package:belajar_flutter/contohGridview_flutter/GridBuilder.dart';
 
 
 void main() {
@@ -28,31 +35,31 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: const Color.fromARGB(255, 254, 255, 255),
-        appBar: AppBar(
-          title: const Text('RPL 2'),
-          backgroundColor: Colors.blue,
-          centerTitle: true,
-        ),
-        body: KartuDashboard(), // Replace with your desired widget
+        // appBar: AppBar(
+        //   title: const Text('RPL 2'),
+        //   backgroundColor: Colors.blue,
+        //   centerTitle: true,
+        // ),
+        body: LatihanLayout(), // Replace with your desired widget
       ),
     );
   }
 }
 
-class HelloWidget extends StatelessWidget {
-  const HelloWidget({super.key});
+// class HelloWidget extends StatelessWidget {
+//   const HelloWidget({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'Hello, Flutter Nich!',
-        style: TextStyle(
-          color: Colors.blue,
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return const Center(
+//       child: Text(
+//         'Hello, Flutter Nich!',
+//         style: TextStyle(
+//           color: Colors.blue,
+//           fontSize: 24,
+//           fontWeight: FontWeight.bold,
+//         ),
+//       ),
+//     );
+//   }
+// }
