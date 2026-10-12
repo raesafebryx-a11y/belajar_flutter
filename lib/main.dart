@@ -9,7 +9,9 @@ import 'package:flutter/material.dart';
 // import 'package:belajar_flutter/sized_expanded_stack/SizedBoxWidget.dart';
 // import 'package:belajar_flutter/sized_expanded_stack/StackWidget.dart';
 // import 'package:belajar_flutter/row_column_widget/ProfileTw.dart';
-import 'package:belajar_flutter/sized_expanded_stack/LayoutSatu.dart';
+// import 'package:belajar_flutter/sized_expanded_stack/LayoutSatu.dart';
+// import 'package:belajar_flutter/sized_expanded_stack/LayoutDua.dart';
+import 'package:belajar_flutter/sized_expanded_stack/LayoutTiga.dart';
 
 
 void main() {
@@ -31,7 +33,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.blue,
           centerTitle: true,
         ),
-        body: LayoutSatu(), // Replace with your desired widget
+        body: KartuDashboard(), // Replace with your desired widget
       ),
     );
   }
