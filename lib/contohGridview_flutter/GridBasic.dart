@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 
 class GridBasic extends StatelessWidget {
   const GridBasic({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
+    var mediaQuery = MediaQuery.of(context);
+    final double widthScreen = mediaQuery.size.width;
+    final double heightScreen = mediaQuery.size.height;
     final List<Map<String, dynamic>> kotak = [
       {
         'judul': 'Kotak 1',
@@ -46,9 +49,9 @@ class GridBasic extends StatelessWidget {
       body: GridView.count(
         crossAxisCount: 2,
         padding: const EdgeInsets.all(16),
-        crossAxisSpacing: 16,
-        mainAxisSpacing: 16,
-        childAspectRatio: 0.95,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        childAspectRatio: widthScreen / heightScreen,
         children: kotak.map((item) {
           final warna = item['warna'] as Color;
 
