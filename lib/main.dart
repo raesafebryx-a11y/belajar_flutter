@@ -1,3 +1,5 @@
+import 'package:belajar_flutter/pages/home_page.dart';
+import 'package:belajar_flutter/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 // import 'package:belajar_flutter/container_widget/LatihanSoal.dart';
 // import 'package:belajar_flutter/container_widget/LatihanSoal2.dart';
@@ -20,7 +22,7 @@ import 'package:flutter/material.dart';
 // import 'package:belajar_flutter/contohGridview_flutter/GridBasic.dart';
 // import 'package:belajar_flutter/contohGridview_flutter/GridBuilder.dart';
 // import 'package:belajar_flutter/contohGridview_flutter/GridProductPage.dart';
-import 'package:belajar_flutter/sized_expanded_stack/instagramlayout.dart';
+// import 'package:belajar_flutter/sized_expanded_stack/instagramlayout.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,33 +36,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'RPL 2',
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 254, 255, 255),
-        // appBar: AppBar(
-        //   title: const Text('RPL 2'),
-        //   backgroundColor: Colors.blue,
-        //   centerTitle: true,
-        // ),
-        body: InstagramLayout(), // Replace with your desired widget
-      ),
+      initialRoute: '/',
+      routes: AppRoutes.routes,
     );
   }
 }
-
-// class HelloWidget extends StatelessWidget {
-//   const HelloWidget({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return const Center(
-//       child: Text(
-//         'Hello, Flutter Nich!',
-//         style: TextStyle(
-//           color: Colors.blue,
-//           fontSize: 24,
-//           fontWeight: FontWeight.bold,
-//         ),
-//       ),
-//     );
-//   }
-// }
