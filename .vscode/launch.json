@@ -3,17 +3,17 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "belajar_flutter - Chrome",
+            "name": "belajar_flutter - Linux",
             "request": "launch",
             "type": "dart",
-            "deviceId": "chrome",
+            "deviceId": "linux",
             "program": "lib/main.dart"
         },
         {
             "name": "belajar_flutter (profile mode)",
             "request": "launch",
             "type": "dart",
-            "deviceId": "chrome",
+            "deviceId": "Linux",
             "flutterMode": "profile",
             "program": "lib/main.dart"
         },
@@ -21,7 +21,7 @@
             "name": "belajar_flutter (release mode)",
             "request": "launch",
             "type": "dart",
-            "deviceId": "chrome",
+            "deviceId": "Linux",
             "flutterMode": "release",
             "program": "lib/main.dart"
         }

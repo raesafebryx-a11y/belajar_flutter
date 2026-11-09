@@ -1,4 +1,3 @@
-import 'package:belajar_flutter/pages/home_page.dart';
 import 'package:belajar_flutter/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 // import 'package:belajar_flutter/container_widget/LatihanSoal.dart';
@@ -36,7 +35,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'RPL 2',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
+      initialRoute: AppRoutes.home,
       routes: AppRoutes.routes,
     );
   }

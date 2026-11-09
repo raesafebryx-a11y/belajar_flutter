@@ -1,7 +1,20 @@
+
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const FormulirPage());
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: FormulirPage(),
+    );
+  }
 }
 
 class FormulirPage extends StatefulWidget {
@@ -13,7 +26,10 @@ class FormulirPage extends StatefulWidget {
 
 class _FormulirPageState extends State<FormulirPage> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _nameController = TextEditingController();
+
+  final TextEditingController _nameController =
+      TextEditingController();
+
   String _outputName = '';
 
   @override
@@ -23,19 +39,30 @@ class _FormulirPageState extends State<FormulirPage> {
   }
 
   void _submit() {
-    print('Nama Lengkap: ${_nameController.text}');
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Nama Lengkap: ${_nameController.text}')),
-    );
-    setState(() {
-      _outputName = _nameController.text;
-    });
+    if (_formKey.currentState!.validate()) {
+      print('Nama Lengkap: ${_nameController.text}');
+
+      setState(() {
+        _outputName = _nameController.text;
+      });
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            'Nama Lengkap: ${_nameController.text}',
+          ),
+          backgroundColor: Colors.green,
+        ),
+      );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Formulir Data')),
+      appBar: AppBar(
+        title: const Text('Formulir Data'),
+      ),
       body: Center(
         child: Form(
           key: _formKey,
@@ -49,26 +76,32 @@ class _FormulirPageState extends State<FormulirPage> {
                     labelText: 'Enter your name',
                     border: OutlineInputBorder(),
                   ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Nama tidak boleh kosong';
+                    }
+                    return null;
+                  },
                 ),
               ),
+
               const SizedBox(height: 10),
+
               ElevatedButton(
                 onPressed: () {
-                  {
-                    print('Name: ${_nameController.text}');
-                  }
+                  print('Name: ${_nameController.text}');
                 },
                 child: const Text('Get Name'),
               ),
+
               ElevatedButton(
-                onPressed: () {
-                  _submit();
-                },
+                onPressed: _submit,
                 child: const Text('Submit'),
               ),
+
               Text(
-               'Nama: ${_outputName.isEmpty ? "-" : _outputName}',
-               style: const TextStyle(fontSize: 16),
+                'Nama: ${_outputName.isEmpty ? "-" : _outputName}',
+                style: const TextStyle(fontSize: 16),
               ),
             ],
           ),

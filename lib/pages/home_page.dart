@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
 
           OutlinedButton(
             onPressed: () {
-              Navigator.pushNamed(context, AppRoutes.instagram);
+              Navigator.pushNamed(context, '/instagram');
             },
             child: const Text('Pergi ke Instagram'),
           ),
