@@ -1,4 +1,4 @@
-
+import 'package:belajar_flutter/form/TiketStadion.dart';
 import 'package:belajar_flutter/pages/about_page.dart';
 import 'package:belajar_flutter/pages/home_page.dart';
 import 'package:belajar_flutter/pages/input_page.dart';
@@ -13,17 +13,15 @@ class AppRoutes {
   static const formulir = '/formulir';
   static const inputForm = '/input-form';
   static const outputForm = '/output-form';
-
-
+  static const tiketStadion = '/tiket-stadion';
 
   // Daftar rute beserta widget tujuannya
   static Map<String, WidgetBuilder> routes = {
     home: (context) => HomePage(),
     about: (context) => AboutPage(),
     latihanGrid: (context) => grid_file.InstagramLayout(),
-    formulir:(context) => BelajarForm(),
+    formulir: (context) => BelajarForm(),
     inputForm: (context) => BelajarForm(),
-    
-
+    tiketStadion: (context) => const DiscoverPage(),
   };
 }
