@@ -3,11 +3,12 @@ import 'package:belajar_flutter/pages/album_page.dart';
 import 'package:belajar_flutter/pages/about_page.dart';
 import 'package:belajar_flutter/pages/home_page.dart';
 import 'package:belajar_flutter/pages/input_page.dart';
+import 'package:belajar_flutter/pages/userPage.dart';
 import 'package:belajar_flutter/row_column_widget/ProfileTw.dart';
 import 'package:belajar_flutter/row_column_widget/RowColumnWidget.dart';
 import 'package:belajar_flutter/row_column_widget/RowWidget.dart';
-import 'package:belajar_flutter/sized_expanded_stack/instagramlayout.dart'
-    as grid_file;
+import 'package:belajar_flutter/sized_expanded_stack/instagramlayout.dart';
+import 'package:belajar_flutter/pages/post_page.dart' as grid_file;
 
 import 'package:flutter/material.dart';
 
@@ -25,12 +26,14 @@ class AppRoutes {
   static const latihanRow = '/latihan-row';
   static const latihanRowColumn = '/latihan-row-column';
   static const profile = '/profile';
+  static const postPage = '/post-page';
+  static const userPage = '/user-page';
 
   // Daftar rute beserta widget tujuannya
   static Map<String, WidgetBuilder> routes = {
     home: (context) => HomePage(),
     about: (context) => AboutPage(),
-    latihanGrid: (context) => grid_file.InstagramLayout(),
+    latihanGrid: (context) => InstagramLayout(),
     formulir: (context) => BelajarForm(),
     inputForm: (context) => BelajarForm(),
     tiketStadion: (context) => const DiscoverPage(),
@@ -43,6 +46,8 @@ class AppRoutes {
       appBar: AppBar(title: const Text('Latihan Row dan Column')),
       body: const RowcolumnWidget(),
     ),
+    postPage: (context) => const grid_file.PostPage(),
     profile: (context) => const ProfilePage(),
+     userPage: (context) => const UserPage(),
   };
 }

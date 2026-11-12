@@ -71,6 +71,22 @@ class HomePage extends StatelessWidget {
         'bgColor': const Color(0xFFFFFBEB),
         'route': AppRoutes.about,
       },
+      {
+        'title': 'Post API',
+        'subtitle': 'Ambil data dari API',
+        'icon': Icons.post_add_rounded,
+        'color': const Color(0xFFDC2626),
+        'bgColor': const Color(0xFFFEE2E2),
+        'route': AppRoutes.postPage,
+      },
+      {
+        'title': 'User API',
+        'subtitle': 'Ambil data dari API',
+        'icon': Icons.person_search_rounded,
+        'color': const Color(0xFF2563EB),
+        'bgColor': const Color(0xFFEFF6FF),
+        'route': AppRoutes.userPage,
+      },
     ];
 
     return Scaffold(
