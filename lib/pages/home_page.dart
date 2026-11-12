@@ -6,7 +6,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Daftar menu navigasi menggunakan List<Map<String, dynamic>>
     final List<Map<String, dynamic>> menuItems = [
       {
         'title': 'Tiket Stadion',
@@ -25,12 +24,44 @@ class HomePage extends StatelessWidget {
         'route': AppRoutes.formulir,
       },
       {
+        'title': 'Album API',
+        'subtitle': 'Ambil data dari API',
+        'icon': Icons.album_rounded,
+        'color': const Color(0xFF7C3AED),
+        'bgColor': const Color(0xFFF5F3FF),
+        'route': AppRoutes.album,
+      },
+      {
         'title': 'Instagram UI',
         'subtitle': 'Latihan Grid Layout',
         'icon': Icons.grid_view_rounded,
         'color': const Color(0xFFE11D48),
         'bgColor': const Color(0xFFFFF1F2),
-        'route': '/instagram',
+        'route': AppRoutes.latihanGrid,
+      },
+      {
+        'title': 'Latihan Row',
+        'subtitle': 'Belajar widget Row',
+        'icon': Icons.view_column_rounded,
+        'color': const Color(0xFF0891B2),
+        'bgColor': const Color(0xFFECFEFF),
+        'route': AppRoutes.latihanRow,
+      },
+      {
+        'title': 'Row dan Column',
+        'subtitle': 'Susunan widget dasar',
+        'icon': Icons.dashboard_customize_rounded,
+        'color': const Color(0xFF059669),
+        'bgColor': const Color(0xFFECFDF5),
+        'route': AppRoutes.latihanRowColumn,
+      },
+      {
+        'title': 'Profile',
+        'subtitle': 'Contoh halaman profil',
+        'icon': Icons.person_rounded,
+        'color': const Color(0xFF9333EA),
+        'bgColor': const Color(0xFFFAF5FF),
+        'route': AppRoutes.profile,
       },
       {
         'title': 'About App',
@@ -43,254 +74,128 @@ class HomePage extends StatelessWidget {
     ];
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF8FAFC),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 22.0, vertical: 18.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // 1. HEADER PREMIUM
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Selamat Datang 👋',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.black54,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      SizedBox(height: 4),
-                      Text(
-                        'Belajar Flutter',
-                        style: TextStyle(
-                          fontSize: 26,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: -0.5,
-                          color: Color(0xFF0F172A),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.05),
-                          blurRadius: 10,
-                          offset: const Offset(0, 4),
-                        ),
-                      ],
-                    ),
-                    child: const Icon(
-                      Icons.notifications_none_rounded,
-                      color: Color(0xFF0F172A),
-                      size: 24,
-                    ),
-                  ),
-                ],
-              ),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        title: const Text(
+          'Belajar Flutter',
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+        actions: const [
+          Icon(Icons.notifications_none, color: Colors.black),
+          SizedBox(width: 16),
+        ],
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Selamat Datang 👋',
+              style: TextStyle(fontSize: 14, color: Colors.black54),
+            ),
 
-              const SizedBox(height: 24),
+            const SizedBox(height: 20),
 
-              // 2. HERO BANNER UTAMA (TIKET STADION / ONLINE SHOP)
-              GestureDetector(
-                onTap: () => Navigator.pushNamed(context, AppRoutes.tiketStadion),
-                child: Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(22),
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      colors: [Color(0xFF1DB954), Color(0xFF138A3C)],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
+            // Banner Tiket Stadion
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, AppRoutes.tiketStadion);
+              },
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 10, 10, 10),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Tugas Seharian',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                    borderRadius: BorderRadius.circular(24),
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0xFF1DB954).withOpacity(0.35),
-                        blurRadius: 18,
-                        offset: const Offset(0, 8),
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                              decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(0.2),
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: const Text(
-                                'FEATURED STORE',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.bold,
-                                  letterSpacing: 1,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(height: 12),
-                            const Text(
-                              'Tiket Stadion &\nOnline Shop',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold,
-                                height: 1.2,
-                              ),
-                            ),
-                            const SizedBox(height: 8),
-                            const Text(
-                              'Multi-item cart, Cash, QRIS & Struk',
-                              style: TextStyle(
-                                color: Colors.white70,
-                                fontSize: 12,
-                              ),
-                            ),
-                            const SizedBox(height: 16),
-                            Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: const Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(
-                                    'Buka Toko',
-                                    style: TextStyle(
-                                      color: Color(0xFF1DB954),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 13,
-                                    ),
-                                  ),
-                                  SizedBox(width: 6),
-                                  Icon(
-                                    Icons.arrow_forward_rounded,
-                                    color: Color(0xFF1DB954),
-                                    size: 16,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const Icon(
-                        Icons.shopping_bag_rounded,
-                        size: 86,
-                        color: Colors.white24,
-                      ),
-                    ],
-                  ),
+                    SizedBox(height: 8),
+                    SizedBox(height: 12),
+                  ],
                 ),
               ),
+            ),
 
-              const SizedBox(height: 28),
+            const SizedBox(height: 25),
 
-              // 3. SECTION TITLE
-              const Text(
-                'Menu Navigasi',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF0F172A),
-                ),
+            const Text(
+              'Menu Navigasi',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+
+            const SizedBox(height: 15),
+
+            // Grid Menu
+            GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: menuItems.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 12,
+                mainAxisSpacing: 12,
+                childAspectRatio: 1.1,
               ),
-              const SizedBox(height: 14),
+              itemBuilder: (context, index) {
+                final item = menuItems[index];
 
-              // 4. GRID MENU PREMIUM
-              GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: menuItems.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 14,
-                  mainAxisSpacing: 14,
-                  childAspectRatio: 1.05,
-                ),
-                itemBuilder: (context, index) {
-                  final item = menuItems[index];
-                  return GestureDetector(
-                    onTap: () => Navigator.pushNamed(context, item['route']),
-                    child: Container(
-                      padding: const EdgeInsets.all(18),
+                return Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(12),
+                    onTap: () =>
+                        Navigator.pushNamed(context, item['route'] as String),
+                    child: Ink(
+                      padding: const EdgeInsets.all(15),
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: Colors.grey.shade100),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.03),
-                            blurRadius: 12,
-                            offset: const Offset(0, 4),
-                          ),
-                        ],
+                        border: Border.all(color: Colors.grey.shade300),
+                        borderRadius: BorderRadius.circular(12),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Container(
-                            padding: const EdgeInsets.all(12),
-                            decoration: BoxDecoration(
-                              color: item['bgColor'],
-                              borderRadius: BorderRadius.circular(14),
-                            ),
-                            child: Icon(
-                              item['icon'],
-                              color: item['color'],
-                              size: 26,
+                          Icon(item['icon'], color: item['color'], size: 30),
+                          const SizedBox(height: 15),
+                          Text(
+                            item['title'],
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                item['title'],
-                                style: const TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFF0F172A),
-                                ),
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                item['subtitle'],
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.black54,
-                                ),
-                              ),
-                            ],
+                          const SizedBox(height: 5),
+                          Text(
+                            item['subtitle'],
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              fontSize: 12,
+                              color: Colors.black54,
+                            ),
                           ),
                         ],
                       ),
                     ),
-                  );
-                },
-              ),
-            ],
-          ),
+                  ),
+                );
+              },
+            ),
+          ],
         ),
       ),
     );

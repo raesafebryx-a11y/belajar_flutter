@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class RowcolumnWidget extends StatelessWidget {
+  const RowcolumnWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -10,17 +12,17 @@ class RowcolumnWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Column(            
+            Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [Icon(Icons.call, size:24),Text('Call')],
+              children: [Icon(Icons.call, size: 24), Text('Call')],
             ),
-            Column(            
+            Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [Icon(Icons.route, size:24),Text('Route')],
+              children: [Icon(Icons.route, size: 24), Text('Route')],
             ),
-            Column(            
+            Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [Icon(Icons.share, size:24),Text('Share')],
+              children: [Icon(Icons.share, size: 24), Text('Share')],
             ),
           ],
         ),

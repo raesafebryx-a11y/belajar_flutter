@@ -53,6 +53,11 @@ class _CheckoutPageState extends State<CheckoutPage> {
     return cashInputAmount - _grandTotal;
   }
 
+  double get _shortfallAmount {
+    if (cashInputAmount >= _grandTotal) return 0;
+    return _grandTotal - cashInputAmount;
+  }
+
   void _updateQty(int index, int delta) {
     setState(() {
       int newQty = (items[index]['qty'] as int) + delta;
@@ -380,19 +385,25 @@ class _CheckoutPageState extends State<CheckoutPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text(
-                                'Kembalian',
-                                style: TextStyle(
+                              Text(
+                                cashInputAmount < _grandTotal
+                                    ? 'Kekurangan'
+                                    : 'Kembalian',
+                                style: const TextStyle(
                                   fontSize: 13,
                                   color: Colors.black54,
                                 ),
                               ),
                               Text(
-                                'Rp ${_changeAmount.toStringAsFixed(0)}',
-                                style: const TextStyle(
+                                cashInputAmount < _grandTotal
+                                    ? 'Rp ${_shortfallAmount.toStringAsFixed(0)}'
+                                    : 'Rp ${_changeAmount.toStringAsFixed(0)}',
+                                style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  color: Color(0xFF1DB954),
                                   fontSize: 15,
+                                  color: cashInputAmount < _grandTotal
+                                      ? Colors.redAccent
+                                      : const Color(0xFF1DB954),
                                 ),
                               ),
                             ],
